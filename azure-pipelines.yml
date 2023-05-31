@@ -14,7 +14,7 @@ schedules:
   always: false 
 
 stages:
-  - template: build.yml
-  - template: dev.yml
-  - template: test.yml
-  - template: staging.yml
+  - template: yalm_templates/build.yml
+  - template: yalm_templates/dev.yml
+  - template: yalm_templates/test.yml
+  - template: yalm_templates/staging.yml
