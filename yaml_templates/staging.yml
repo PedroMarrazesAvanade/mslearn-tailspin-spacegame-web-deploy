@@ -1,5 +1,3 @@
-variables:
-  azureSubscription: 'Resource Manager - Tailspin - Space Game'
 stages:
 - stage: 'Staging'
   displayName: 'Deploy to the staging environment'
