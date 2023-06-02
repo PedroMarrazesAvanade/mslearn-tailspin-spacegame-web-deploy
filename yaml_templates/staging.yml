@@ -13,4 +13,8 @@ stages:
       runOnce:
         deploy:
           steps:
-          - template: azurewebapp_step.yml
+          extends:
+            template: azurewebapp_staging_step.yml
+            parameters:
+              appName: '$(WebAppNameStaging)'
+          
