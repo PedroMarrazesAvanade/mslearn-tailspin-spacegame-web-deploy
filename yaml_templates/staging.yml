@@ -14,6 +14,6 @@ stages:
         deploy:
           steps:
             - template: azurewebapp_staging_step.yml
-            - parameters:
-              appName: '$(WebAppNameStaging)'
+              parameters:
+                appName: '$(WebAppNameStaging)'
           
