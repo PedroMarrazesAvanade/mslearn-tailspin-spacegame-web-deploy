@@ -9,7 +9,7 @@ stages:
       eq(variables['Build.SourceBranchName'], variables['releaseBranchName'])
     )
   jobs:
-  - template: azurewebapp_staging_step.yml
+  - template: azurewebapp_jobs.yml
     parameters:
       appName: '$(WebAppNameDev)'
       environment: 'dev'

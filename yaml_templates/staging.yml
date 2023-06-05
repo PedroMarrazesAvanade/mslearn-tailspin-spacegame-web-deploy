@@ -3,7 +3,7 @@ stages:
   displayName: 'Deploy to the staging environment'
   dependsOn: Test
   jobs:
-  - template: azurewebapp_staging_step.yml
+  - template: azurewebapp_jobs.yml
     parameters:
       appName: '$(WebAppNameStaging)'
       environment: 'staging'
