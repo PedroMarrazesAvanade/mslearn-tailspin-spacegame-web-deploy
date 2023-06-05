@@ -9,16 +9,7 @@ stages:
       eq(variables['Build.SourceBranchName'], variables['releaseBranchName'])
     )
   jobs:
-  - deployment: Deploy
-    pool:
-      vmImage: 'ubuntu-20.04'
-    environment: dev
-    variables:
-    - group: Release
-    strategy:
-      runOnce:
-        deploy:
-            steps:
-            - template: azurewebapp_staging_step.yml
-              parameters:
-                appName: '$(WebAppNameDev)'
+  - template: azurewebapp_staging_step.yml
+    parameters:
+      appName: '$(WebAppNameDev)'
+      environment: 'dev'

@@ -1,0 +1,26 @@
+parameters:
+- name: appName
+  type: string
+- name: environment
+  type: string
+
+
+jobs:
+- deployment: Deploy
+  pool:
+    vmImage: 'ubuntu-20.04'
+  environment: ${{ parameters.environment }}
+  variables:
+  - group: 'Release'
+  strategy:
+    runOnce:
+      deploy:
+        steps:
+        - download: current
+          artifact: drop
+        - task: AzureWebApp@1
+          displayName: 'Azure App Service Deploy: website'
+          inputs:
+            azureSubscription: '$(azureSubscription)'
+            appName: ${{ parameters.appName }}
+            package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/*.zip'

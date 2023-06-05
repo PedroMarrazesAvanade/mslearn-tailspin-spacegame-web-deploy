@@ -3,17 +3,9 @@ stages:
   displayName: 'Deploy to the staging environment'
   dependsOn: Test
   jobs:
-  - deployment: Deploy
-    pool:
-      vmImage: 'ubuntu-20.04'
-    environment: staging
-    variables:
-    - group: 'Release'
-    strategy:
-      runOnce:
-        deploy:
-          steps:
-            - template: azurewebapp_staging_step.yml
-              parameters:
-                appName: '$(WebAppNameStaging)'
+  - template: azurewebapp_staging_step.yml
+    parameters:
+      appName: '$(WebAppNameStaging)'
+      environment: 'staging'
+            
           
